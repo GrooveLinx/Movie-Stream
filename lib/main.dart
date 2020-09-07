@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'Kufam',
-        primarySwatch: Colors.blue,
+        primaryColor: Color(0xFF422a3c),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomePage(),
