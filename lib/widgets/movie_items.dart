@@ -15,25 +15,30 @@ class _MovieItemState extends State<MovieItem> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(
-          builder: (context) => MovieDetails(widget.movie.id)
-        ));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => MovieDetails(widget.movie.id)));
       },
-          child: Card(
+      child: Card(
           color: Color(0xFF445361),
           margin: EdgeInsets.symmetric(horizontal: 7, vertical: 7),
           elevation: 5,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: Column(
             children: [
-              Image.asset(
-                widget.movie.image,
-                width: double.maxFinite,
-                height: 200,
-                fit: BoxFit.cover,
+              Hero(
+                tag: widget.movie.id,
+                  child: Image.asset(
+                  widget.movie.image,
+                  width: double.maxFinite,
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -56,6 +61,9 @@ class _MovieItemState extends State<MovieItem> {
                         ),
                       ],
                     ),
+                    SizedBox(
+                      width: 5,
+                    ),
                     Row(
                       children: [
                         Icon(
@@ -72,6 +80,9 @@ class _MovieItemState extends State<MovieItem> {
                               fontSize: 16,
                             )),
                       ],
+                    ),
+                    SizedBox(
+                      width: 5,
                     ),
                     Row(
                       children: [
@@ -90,6 +101,20 @@ class _MovieItemState extends State<MovieItem> {
                             )),
                       ],
                     ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    IconButton(
+                        icon: Icon(widget.movie.isFavourite
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                            color: Colors.red,),
+                        onPressed: () {
+                          setState(() {
+                            widget.movie.isFavourite =
+                                !widget.movie.isFavourite;
+                          });
+                        })
                   ],
                 ),
               ),

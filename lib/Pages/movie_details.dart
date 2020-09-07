@@ -20,10 +20,13 @@ class MovieDetails extends StatelessWidget {
             pinned: true,
             floating: true,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                movie.image,
-                width: 300,
-                fit: BoxFit.cover,
+              background: Hero(
+                tag: movie.id,
+                  child: Image.asset(
+                  movie.image,
+                  width: 300,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
