@@ -32,7 +32,7 @@ class _MovieItemState extends State<MovieItem> {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.calendar_today,),
+                      Icon(Icons.calendar_today,color: Colors.green[700],),
                       SizedBox(
                         width: 5,
                       ),
